@@ -1,4 +1,4 @@
-#include <iostream>
+#include "std_lib_facilities.h"
 #include <stdexcept>
 #include <vector>
 #include <algorithm>
@@ -7,12 +7,12 @@
 #include <string>
 
 template<typename C>
-void print_contents(const C& c, const std::string& s = "")
+void print_contents(const C& c, const string& s = "")
 {
-    std::cout << s << '\t';
+    cout << s << '\t';
     for (auto& a : c)
-        std::cout << a << ' ';
-    std::cout << '\n';
+        cout << a << ' ';
+    cout << '\n';
 }
 
 template<typename C>
@@ -38,28 +38,28 @@ try {
     for (int i = 0; i < size; ++i) arr[i] = i;
     print_contents(arr, "built-in []: ");
 
-    std::array<int, size> ai;
-    std::copy(arr, arr + size, ai.begin());
-    print_contents(ai, "std::array: ");
+    array<int, size> ai;
+    copy(arr, arr + size, ai.begin());
+    print_contents(ai, "array: ");
 
-    std::vector<int> vi(size);
-    std::copy(arr, arr + size, vi.begin());
-    print_contents(vi, "std::vector: ");
+    vector<int> vi(size);
+    copy(arr, arr + size, vi.begin());
+    print_contents(vi, "vector: ");
 
-    std::list<int> li(size);
-    std::copy(arr, arr + size, li.begin());
-    print_contents(li, "std::list: ");
+    list<int> li(size);
+    copy(arr, arr + size, li.begin());
+    print_contents(li, "list: ");
 
-    std::cout << '\n';
+    cout << '\n';
 
-    std::array<int, size> ai2 = ai;
-    std::vector<int> vi2 = vi;
-    std::list<int> li2 = li;
+    array<int, size> ai2 = ai;
+    vector<int> vi2 = vi;
+    list<int> li2 = li;
     print_contents(ai2, "array copy: ");
     print_contents(vi2, "vector copy: ");
     print_contents(li2, "list copy: ");
 
-    std::cout << '\n';
+    cout << '\n';
 
     inc_contents(ai2, 2);
     inc_contents(vi2, 3);
@@ -68,7 +68,7 @@ try {
     print_contents(vi2, "vector inc'd: ");
     print_contents(li2, "list inc'd: ");
 
-    std::cout << '\n';
+    cout << '\n';
 
     my_copy(ai2.begin(), ai2.end(), vi2.begin());
     my_copy(li2.begin(), li2.end(), ai2.begin());
@@ -76,25 +76,26 @@ try {
     print_contents(vi2, "vector copied: ");
     print_contents(li2, "list copied: ");
 
-    std::vector<int>::iterator vit;
-    vit = std::find(vi2.begin(), vi2.end(), 3);
+    vector<int>::iterator vit;
+    vit = find(vi2.begin(), vi2.end(), 3);
     if (vit != vi2.end())
-        std::cout << "Found at: " << std::distance(vi2.begin(), vit) << '\n';
+        cout << "Found at: " << distance(vi2.begin(), vit) << '\n';
     else
-        std::cout << "Not found..\n";
+        cout << "Not found..\n";
 
-    std::list<int>::iterator lit;
-    lit = std::find(li2.begin(), li2.end(), 27);
+    list<int>::iterator lit;
+    lit = find(li2.begin(), li2.end(), 27);
     if (lit != li2.end())
-        std::cout << "Found at: " << std::distance(li2.begin(), lit) << '\n';
+        cout << "Found at: " << distance(li2.begin(), lit) << '\n';
     else
-        std::cout << "Not found..\n";
+        cout << "Not found..\n";
 }
-catch(std::exception& e) {
-    std::cerr << "Exception: " << e.what() << '\n';
+catch(exception& e) {
+    cerr << "Exception: " << e.what() << '\n';
     return 1;
 }
 catch(...) {
-    std::cerr << "Unknown exception\n";
+    cerr << "Unknown exception\n";
     return 2;
 }
+

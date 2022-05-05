@@ -7,8 +7,7 @@ using namespace Graph_lib;
 int main()
 {
 	Lines_window win{ Point{100,100}, 800, 600, "lines" };
-
-	std::getchar();
+	
 	return gui_main();
 	
 }

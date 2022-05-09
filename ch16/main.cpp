@@ -1,4 +1,4 @@
-// g++ ch16main.cpp Graph.cpp Window.cpp GUI.cpp Lines_window.cpp -o ch16main `fltk-config --ldflags --use-images`
+// g++ main.cpp Graph.cpp Window.cpp GUI.cpp Simple_window.cpp -o main `fltk-config --ldflags --use-images`
 
 #include "GUI.h"
 #include "Lines_window.h"
